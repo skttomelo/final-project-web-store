@@ -1,6 +1,6 @@
 /* 
 Name(s): Trevor Crow, Cameron Foster
-Date: 11/8/2018
+Date: 11/14/2018
 Description: css for the home, catalog, login and sign up page
 */
 .background{
@@ -63,7 +63,7 @@ hr {
     box-sizing: border-box;
 }
 body{
-    font-family: "arial";
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16pt;
 }
 .row::after {

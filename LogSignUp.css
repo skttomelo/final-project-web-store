@@ -1,0 +1,22 @@
+/* 
+Name(s): Trevor Crow, Cameron Foster
+Date: 11/15/2018
+Description: specific css for login/signup page
+*/
+form {
+    margin-top: 10px;
+    background-color:#80deea96;
+}
+input[type=text], input[type=password] {
+    margin-top: 8px;
+    border-color:#4bacb8;
+}           
+button {
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 25%;
+}
+button:hover {
+
+}
