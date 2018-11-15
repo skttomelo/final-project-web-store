@@ -14,6 +14,32 @@ Description: css for the home, catalog, login and sign up page
     top: 0;
     left: 0;
 }
-.position-fixed{
-    position: fixed;
+.logsign{
+    display:block;
+    width: 200px;
+    text-align: center;
+    float: left;
+
 }
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+nav ul li{
+    list-style-type: none;
+    float: left;
+    padding-left:25px;
+    padding-right:25px;
+}
+
+/* 
+background-color: rgba(255,255,255, .75);
+
+use the stuff below for borders and separation
+
+Primary Color: #80deea
+P-Light Color: #b4ffff
+P-Dark Color: #4bacb8
+*/
