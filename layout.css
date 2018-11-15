@@ -14,24 +14,75 @@ Description: css for the home, catalog, login and sign up page
     top: 0;
     left: 0;
 }
-.logsign{
-    display:block;
-    width: 200px;
-    text-align: center;
-    float: left;
-
-}
 .float-left{
     float: left;
 }
 .float-right{
     float: right;
 }
+header{
+    background-color: rgba(255,255,255, .75);
+    width:100%;
+}
+header *{
+}
 nav ul li{
+    overflow: hidden;
     list-style-type: none;
     float: left;
     padding-left:25px;
     padding-right:25px;
+}
+nav ul li a:hover{
+    background-color:white;
+}
+
+
+#homedesc{
+    background-color:#80deea96;
+}
+
+
+
+/* responsive stuff */
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: "arial";
+    font-size: 16pt;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/* image icons */
+.cart{
+    display:none;
+}
+.catalog{
+    display:none;
+}
+.home{
+    display:none;
 }
 
 /* 
