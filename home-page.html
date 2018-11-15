@@ -14,7 +14,9 @@ Description: home page of web store
         <div class="background"></div>
         
         <!-- header that also contains navigation-->
-        <header class="col-12">
+
+        <!-- desktop navigation -->
+        <header id="desktop" class="col-12">
             <!-- login/signup -->
             <p class="float-left"><a href="">Login</a> or <a href="">Create an Account</a></p>
             <!-- navigation -->
@@ -23,16 +25,29 @@ Description: home page of web store
                     <li><a href="">Home</a></li>
                     <li><a href="">Catalog</a></li>
                     <li><a href="">Shopping Cart</a></li>
-                    <!-- <li class="cart"><a href=""><img src="images/shopping-cart.png" width="32px" height="32px" align="middle"></a></li> -->
                 </ul>
             </nav>
         </header>
 
+        <!-- smaller device navigation -->
+        <header id="smallerdevice" class="col-12">
+            <nav class="float-left">
+                <ul>
+                   <li><a href=""><img src="images/home.png" width="32px" height="32px" align="middle"></a></li>
+                   <li><a href=""><img src="images/catalog.png" width="32px" height="32px" align="middle"></a></li>
+                   <li><a href=""><img src="images/shopping-cart.png" width="32px" height="32px" align="middle"></a></li>
+                   <li><a href=""><img src="images/profile.png" width="32px" height="32px" align="middle"></a></li> 
+                </ul>
+            </nav>
+        </header>
+        
         <!-- brief description about us and what we sell -->
         <section id="homedesc" class="col-8">
-            <h1><img src="images/soda.png" width="36px" height="36px">Flooding Beverages</h1>
+            <h1><img class="logo" src="images/soda.png" width="36px" height="36px">Flooding Beverages</h1>
             <article class="col-6">
-                <p>YEET YOU STUPID BITCH</p>
+                <p>Description of business</p>
+                <hr id="separator">
+                <p>Description products we sell</p>
             </article>
         </section>
 

@@ -20,11 +20,13 @@ Description: css for the home, catalog, login and sign up page
 .float-right{
     float: right;
 }
+.logo{
+    transform: rotate(-20deg);
+    margin-right: 10px;
+}
 header{
     background-color: rgba(255,255,255, .75);
     width:100%;
-}
-header *{
 }
 nav ul li{
     overflow: hidden;
@@ -40,6 +42,18 @@ nav ul li a:hover{
 
 #homedesc{
     background-color:#80deea96;
+    margin-top: 20px;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #4bacb8;
+    margin: 1em 0;
+    padding: 0; 
+}
+#separator{
+    width: 205%;
 }
 
 
@@ -74,15 +88,37 @@ body{
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-/* image icons */
-.cart{
-    display:none;
+/* sizes */
+#desktop{
+    display: block;
 }
-.catalog{
-    display:none;
+#smallerdevice{
+    display: none;
 }
-.home{
-    display:none;
+
+@media only screen and (max-width: 812px){
+    #desktop{
+        display: none;
+    }
+    #smallerdevice{
+        display: block;
+    }
+    nav ul li{
+        overflow: hidden;
+        list-style-type: none;
+        float: left;
+        padding-left:15px;
+        padding-right:15px;
+    }
+    [class*="col-"] {
+        width: 100%;
+    }
+    #separator{
+        width: 100%;
+    }
+    body{
+        font-size: 14pt;
+    }
 }
 
 /* 
