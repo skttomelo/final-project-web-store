@@ -1,38 +1,50 @@
-php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+    $servername = "localhost";
+    $username = "username";
+    $password = "password";
+    $dbname = "floodingbeveragesdb";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+    // Create connection
+    // $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
 
-// sql to create table
-$sql = "CREATE TABLE MySodas (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-roughsnake VARCHAR(1),
-lemonlager VARCHAR(1),
-Passion fruit buzzer VARCHAR(1),
-SeÑor Bub VARCHAR(1),
-DropVARCHAR(1),
-Brew POP VARCHAR(1),
-Angelic lion VARCHAR(1),
-EPIC(Fruit Punch) VARCHAR(1),
-EPIC(Blue rasberry) VARCHAR(1),
-Rough Snake Zero VARCHAR(1),
-Oaken Five VARCHAR(1)
-)";
+    // create database
+    $sql = "CREATE DATABASE ".$dbname;
+    if($conn->query($sql) === true){
+        echo "Database created successfully";
+    }else{
+        echo "error creating database ".$conn->error;
+    }
 
-if ($conn->query($sql) === TRUE) {
-    echo "Table MySodas created successfully";
-} else {
-    echo "Error creating table: " . $conn->error;
-}
+    // sql to create tables
+    $sql = "CREATE TABLE soda_stock(
+    drink INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    stock INT(3)
+    )";
+    if ($conn->query($sql) === TRUE) {
+        echo "Table soda_stock created successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
 
-$conn->close();
+    $sql = "CREATE TABLE users(
+        userid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        fname varchar(30) not null,
+        lname varchar(30) not null,
+        email varchar(50),
+        username varchar(20),
+        pass varchar(100),
+        reg_date TIMESTAMP
+    )";
+    if ($conn->query($sql) === TRUE) {
+        echo "Table users created successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
+
+    $conn->close();
 ?>
