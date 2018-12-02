@@ -95,6 +95,24 @@ body{
 #smallerdevice{
     display: none;
 }
+#cart{
+    background-color:#80deea96;
+    margin-top: 20px;
+    margin-left: 15%;
+}
+div{
+height:400px;
+width: 1000px;
+border:solid;
+}
+button{
+    float:right;
+   position: relative;
+    top:355px;
+    right:10px;
+    background-color: rgba(255,255,255, .75);
+}
+
 
 @media only screen and (max-width: 812px){
     #desktop{
