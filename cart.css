@@ -1,0 +1,18 @@
+#cart{
+    background-color:#80deea96;
+    margin-top: 20px;
+    margin-left: 15%;
+}
+div{
+height:400px;
+width: 1000px;
+border: solid 2px;
+border-color: #4bacb8;
+}
+button{
+    float:right;
+   position: relative;
+    top:355px;
+    right:10px;
+    background-color: rgba(255,255,255, .75);
+}

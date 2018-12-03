@@ -85,12 +85,6 @@
     }else{
         echo "Error creating Record: ".$conn->error;
     }
-    $stmt->bind_param("si", "Drop", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
     $stmt->bind_param("si", "Brew POP", 100);
     if($conn->query($sql) === true){
         $last_id = $conn->insert_id;
