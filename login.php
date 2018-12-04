@@ -1,22 +1,14 @@
-<!-- 
-Name(s): Trevor Crow
-Date: 12/3/2018
-Description: Signs up the user then redirects to the home page
--->
 <?php
     session_start();
-    $uname=$fname=$lname=$email=$pass= "";
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "floodingbeveragesdb";
-    
+    $uname=$pass="";
+
     //test data
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $uname = test_input($_POST["uname"]);
-        $fname = test_input($_POST["fname"]);
-        $lname = test_input($_POST["lname"]);
-        $email = test_input($_POST["email"]);
         $pass = test_input($_POST["psw"]);
     }
     function test_input($data){
@@ -38,19 +30,24 @@ Description: Signs up the user then redirects to the home page
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO users(fname, lname, email, username, pass) VALUES('".$fname."', '".$lname."', '".$email."', '".$uname."', '".$pass."')";
-    if($conn->query($sql) === false){
-        echo "Error creating Record: ".$conn->error;
-    }
-    $last_id = $conn->insert_id;
+    //selects input from database and checks if what the user inputted lines up
+    $sql = "SELECT userid, username, pass FROM users WHERE username='".$uname."' AND pass='".$pass."'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
     $conn->close();
-    
-    $_SESSION["username"] = $uname;
-    $_SESSION["id"] = $last_id;
+    if(($row["username"] === $uname) && ($row["pass"] === $pass)){
+        $_SESSION["username"] = $row["username"];
+        $_SESSION["id"] = $row["userid"];
+        $_SESSION["logged"] = true;
 
+        ob_start();
+        header('Location: home-page.php');
+        ob_end_flush();
+        die();
+    }
+    $_SESSION["logged"] = false;
     ob_start();
-    header('Location: home-page.php');
+    header('Location: loginpage.php');
     ob_end_flush();
     die();
-
 ?>

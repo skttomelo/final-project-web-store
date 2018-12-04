@@ -60,7 +60,7 @@ Description: Log in page of site
         </header>
 
         <!-- form for logging in -->
-        <form action="login.php" class="col-6">
+        <form action="login.php" method="post" class="col-6">
             <h2>Login:</h2> 
             
             <div>
@@ -69,6 +69,13 @@ Description: Log in page of site
                 <br>
                 <label for="psw">Password:</label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
+                <?php
+                    if(!$_SESSION["logged"]){
+                        $_SESSION["logged"] = !$_SESSION["logged"];
+                        echo "<br>
+                        <p style='color:red;'><b><i><u>USERNAME and or PASSWORD are wrong</u></i></b></p>";
+                    }
+                ?>
                     
                 <p>Don't have an account? <a href="SignUppage.php">Create an account</a></p>
 
