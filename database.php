@@ -1,7 +1,12 @@
+<!-- 
+Name(s): Trevor Crow
+Date: 12/1/2018
+Description: ****RUN THIS FIRST**** Creates the database for the server the it redirects you to the home page
+-->
 <?php
     $servername = "localhost";
-    $username = "username";
-    $password = "password";
+    $username = "root";
+    $password = "";
     $dbname = "floodingbeveragesdb";
 
     // Create connection
@@ -19,15 +24,23 @@
     }else{
         echo "error creating database ".$conn->error;
     }
+    $conn->close();
+
+    //connect to that database
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
 
     // sql to create tables
     $sql = "CREATE TABLE soda_stock(
-    drink INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    drinkid INT(1) PRIMARY KEY, 
     drinkname varchar(21),
     stock INT(3)
     )";
     if ($conn->query($sql) === TRUE) {
-        echo "Table soda_stock created successfully";
+        echo "Table soda_stock created successfully\n";
     } else {
         echo "Error creating table: " . $conn->error;
     }
@@ -60,69 +73,66 @@
     }
 
     //insert drinks into drinks table
-    $stmt = $conn->prepare("INSERT INTO soda_stock(drinkname, stock) VALUES(?, ?)");
-    $stmt->bind_param("si", "Rough Snake", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "Lemon lager", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "Passion fruit buzzer (kiwi java)", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "SeÑor Bub", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "Brew POP", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "Angelic lion", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "EPIC(Fruit Punch)", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "EPIC(Blue raspberry)", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "Rough Snake Zero", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
-    $stmt->bind_param("si", "Oaken Five", 100);
-    if($conn->query($sql) === true){
-        $last_id = $conn->insert_id;
-    }else{
-        echo "Error creating Record: ".$conn->error;
-    }
+    $drink_name = "";
+    $drink_id = 0;
+    $amount = 100;
+    $stmt = $conn->prepare("INSERT INTO soda_stock(drinkid, drinkname, stock) VALUES(?, ?, ?)");
+    $stmt->bind_param("isi", $drink_id, $drink_name, $amount);
+    
+    //Rough Snake
+    $drink_name = "Rough Snake";
+    $stmt->execute();
 
+    //Lemon lager
+    $drink_name = "Lemon lager";
+    $drink_id++;
+    $stmt->execute();    
+
+    //Passion fruit buzzer (kiwi java)
+    $drink_name = "Passion fruit buzzer (kiwi java)";
+    $drink_id++;
+    $stmt->execute();
+
+    //SeÑor Bub
+    $drink_name = "SeNor Bub";
+    $drink_id++;
+    $stmt->execute();
+
+    //Brew POP
+    $drink_name = "Brew POP";
+    $drink_id++;
+    $stmt->execute();
+
+    //Angelic lion
+    $drink_name = "Angelic lion";
+    $drink_id++;
+    $stmt->execute();
+
+    //EPIC(Fruit Punch)
+    $drink_name = "EPIC(Fruit Punch)";
+    $drink_id++;
+    $stmt->execute();
+
+    //EPIC(Blue raspberry)
+    $drink_name = "EPIC(Blue raspberry)";
+    $drink_id++;
+    $stmt->execute();
+
+    //Rough Snake Zero
+    $drink_name = "Rough Snake Zero";
+    $drink_id++;
+    $stmt->execute();
+
+    //Oaken Five
+    $drink_name = "Oaken Five";
+    $drink_id++;
+    $stmt->execute();
 
     $stmt->close();
     $conn->close();
+
+    ob_start();
+    header('Location: home-page.php');
+    ob_end_flush();
+    die();
 ?>
