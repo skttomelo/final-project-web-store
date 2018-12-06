@@ -1,0 +1,88 @@
+/* 
+Name(s): Trevor Crow
+Date: 12/5/2018
+Description: item css
+*/
+section ul li{
+    overflow: hidden;
+    list-style-type: none;
+    float: left;
+    padding-left:25px;
+    padding-right:25px;
+    position: relative;
+}
+[class*="item-"]{
+    width: 256px;
+    height: 256px;
+    background-size: 128px;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+.item-0{
+    background-image:url('images/RoughSnake.svg');
+}
+.item-1{
+    background-image:url('images/Lemonlager.svg');
+}
+.item-2{
+    background-image:url('images/PassionFruitBuzzer.svg');
+}
+.item-3{
+    background-image:url('images/SeNorBub.svg');
+}
+.item-4{
+    background-image:url('images/BrewPop.svg');
+}
+.item-5{
+    background-image:url('images/AngelicLion.png');
+}
+.item-6{
+    background-image:url('images/EPIC(FruitPunch).png');
+}
+.item-7{
+    background-image:url('images/EPIC(BlueRasberry).png');
+}
+.item-8{
+    background-image:url('images/RoughSnakeZero.png');
+}
+.item-9{
+    background-image:url('images/OakenFive.png');
+}
+
+#catalog{
+    background-color: #80deea96;
+    
+}
+
+.name{
+    position:absolute;
+    bottom:20px;
+    left:15%;
+}
+#total{
+    position:absolute;
+    bottom:3px;
+    left:15%;
+}
+
+@media only screen and (max-width: 812px){
+    li{
+        overflow: hidden;
+        list-style-type: none;
+        float: left;
+        padding-left:15px;
+        padding-right:15px;
+    }
+    [class*="item-"] {
+        width: 96px;
+        height: 96px;
+        background-size: 64px;
+    }
+    .name{
+        display:none;
+    }
+    #total{
+        left:20%;
+        font-size: 8pt;
+    }
+}

@@ -1,23 +1,22 @@
 <!-- 
 Name(s): Trevor Crow, Cameron Foster
-Date: 11/15/2018
-Description: Log in page of site
--->
+Date: 12/6/2018
+Description: processorder
+ -->
 <?php
     session_start();
 ?>
-
  <!DOCTYPE html>
  <html>
      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="layout.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-        <link rel="stylesheet" type="text/css" href="LogSignUp.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-    </head>
-    <body>
+        <link rel="stylesheet" type="text/css" href="cart.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
+     </head>
+     <body>
         <!-- background -->
         <div class="background"></div>
-           
+        
         <!-- header that also contains navigation-->
 
         <!-- desktop navigation -->
@@ -58,29 +57,14 @@ Description: Log in page of site
                 </ul>
             </nav>
         </header>
-
-        <!-- form for logging in -->
-        <form action="login.php" method="post" class="col-6">
-            <h2>Login:</h2> 
-            
-            <div>
-                <label for="uname">Username:</label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <br>
-                <label for="psw">Password:</label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                <?php
-                    if(!@$_SESSION["logged"]){
-                        @$_SESSION["logged"] = !@$_SESSION["logged"];
-                        echo "<br>
-                        <p style='color:red;'><b><i><u>USERNAME and or PASSWORD are wrong</u></i></b></p>";
-                    }
-                ?>
-                    
-                <p>Don't have an account? <a href="SignUppage.php">Create an account</a></p>
-
-                <button type="submit">Sign In!</button>
-            </div>
+        
+        <form action="process.php" method="post" class="cart col-6">
+            <h1>Please enter in credit card info for the order to finish processing, don't worry about having a destination for your drinks, they'll just appear because the product just works.</h1>
+            <hr>
+            <input type="text" placeholder="16-digits" required>
+            <input type="text" placeholder="CVV" required>
+            <input type="text" placeholder="expiration date" required>
+            <input type="submit" value="finish">
         </form>
-    </body>            
+    </body>
 </html>

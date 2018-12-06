@@ -12,7 +12,7 @@ Description: home page of web store
  <html>
      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="layout.css">
+        <link rel="stylesheet" type="text/css" href="layout.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
      </head>
      <body>
         <!-- background -->
@@ -87,10 +87,5 @@ Description: home page of web store
                 </ul>
             </article>
         </section>
-
-        <!-- footer -->
-        <footer>
-
-        </footer>
      </body>
  </html>

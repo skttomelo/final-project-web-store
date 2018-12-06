@@ -37,7 +37,22 @@ Description: Signs up the user then redirects to the home page
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+    
+    //check if user already exist
+    $sql = "SELECT username FROM users WHERE username='".$uname."'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    if(($row["username"] === $uname)){
+        $_SESSION["registered"] = false;
 
+        $conn->close();
+        ob_start();
+        header('Location: SignUppage.php');
+        ob_end_flush();
+        die();
+    }
+
+    //insert new user
     $sql = "INSERT INTO users(fname, lname, email, username, pass) VALUES('".$fname."', '".$lname."', '".$email."', '".$uname."', '".$pass."')";
     if($conn->query($sql) === false){
         echo "Error creating Record: ".$conn->error;
@@ -45,6 +60,7 @@ Description: Signs up the user then redirects to the home page
     $last_id = $conn->insert_id;
     $conn->close();
     
+    $_SESSION["registered"] = true;
     $_SESSION["username"] = $uname;
     $_SESSION["id"] = $last_id;
 

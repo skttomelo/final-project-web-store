@@ -11,8 +11,8 @@ Description: Log in page of site
  <html>
      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="layout.css">
-        <link rel="stylesheet" type="text/css" href="LogSignUp.css">
+        <link rel="stylesheet" type="text/css" href="layout.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
+        <link rel="stylesheet" type="text/css" href="LogSignUp.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     </head>
     <body>
         <!-- background -->
@@ -78,7 +78,15 @@ Description: Log in page of site
                 <br>
                 <label for="psw">Password:</label><br>
                 <input type="password" placeholder="Enter Password" name="psw" required>
-                    
+                
+                <?php
+                    if(!@$_SESSION["registered"]){
+                        @$_SESSION["registered"] = !@$_SESSION["registered"];
+                        echo "<br>
+                        <p style='color:red;'><b><i><u>USERNAME already exists</u></i></b></p>";
+                    }
+                ?>
+
                 <br>
                 <p>Already have an account? <a href = "loginpage.php">Log in</a>.</p>
                 <br>
