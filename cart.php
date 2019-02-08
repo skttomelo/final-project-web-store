@@ -78,13 +78,14 @@ Description: home page of web store
                     $sql = "SELECT drinkname, price FROM soda_stock WHERE drinkid='".$row["drink"]."'";
                     $result2 = $conn->query($sql);
                     $row2 = $result2->fetch_assoc();
-                    
-                    echo "<li>";
-                    echo $row2["drinkname"];
-                    echo "<br>Cost: ";
-                    echo $row2["price"]."x".$row["quantity"];
-                    echo "</li>";
-                    $total_cost += floatval($row2["price"])*floatval($row["quantity"]);
+                    if(!($row["quantity"] == 0)){
+                        echo "<li>";
+                        echo $row2["drinkname"];
+                        echo "<br>Cost: ";
+                        echo $row2["price"]."x".$row["quantity"];
+                        echo "</li>";
+                        $total_cost += floatval($row2["price"])*floatval($row["quantity"]);
+                    }
                 }
                 echo "</ul><hr>";
                 echo "<p>Total Cost: $".$total_cost."</p>";
