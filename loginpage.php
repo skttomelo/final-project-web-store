@@ -70,7 +70,7 @@ Description: Log in page of site
                 <label for="psw">Password:</label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
                 <?php
-                    if(!@$_SESSION["logged"]){
+                    if(!isset($_SESSION["logged"]) || !@$_SESSION["logged"]){
                         @$_SESSION["logged"] = !@$_SESSION["logged"];
                         echo "<br>
                         <p style='color:red;'><b><i><u>USERNAME and or PASSWORD are wrong</u></i></b></p>";

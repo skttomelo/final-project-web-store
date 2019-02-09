@@ -11,3 +11,8 @@ Description: cart css
 #button{
     float:right;
 }
+@media only screen and (max-width: 812px){
+    .cart{
+        margin-left:auto;
+    }
+}

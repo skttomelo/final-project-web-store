@@ -80,7 +80,7 @@ Description: Log in page of site
                 <input type="password" placeholder="Enter Password" name="psw" required>
                 
                 <?php
-                    if(!@$_SESSION["registered"]){
+                    if(!isset($_SESSION["registered"]) || !@$_SESSION["registered"]){
                         @$_SESSION["registered"] = !@$_SESSION["registered"];
                         echo "<br>
                         <p style='color:red;'><b><i><u>USERNAME already exists</u></i></b></p>";

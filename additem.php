@@ -15,11 +15,12 @@
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
                 $_SESSION["amount".$i] = $_POST["item-".$i];
-                if(intval($row["stock"])<intval($_SESSION["amount".$i])){
+                if(intval($row["stock"])<intval($_SESSION["amount".$i]) || intval($_SESSION["amount".$i]) == 0){
                     $_SESSION["amount".$i] = $row["stock"];
                 }else{
                     $sql = "INSERT INTO orders(userid, drink, quantity) VALUES('".$_SESSION["id"]."', '".$i."', '".$_SESSION["amount".$i]."')";
                     $conn->query($sql);
+                    $_SESSION["went"] = true;
                     
                     $_SESSION["amount".$i] = intval($row["stock"])-intval($_POST["item-".$i]);
                     $sql = "UPDATE soda_stock SET stock=".$_SESSION["amount".$i]." WHERE drinkid=".$i;
