@@ -15,4 +15,8 @@ Description: cart css
     .cart{
         margin-left:auto;
     }
+    
+    #process{
+        font-size: 100%;
+    }
 }
